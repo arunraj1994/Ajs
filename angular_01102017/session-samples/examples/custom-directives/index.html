@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container" ng-controller="customDirectiveController">
+
+        <h2>Using Custom Directives</h2>
+
+        <my-directive></my-directive>
+        <br/>
+
+        <div my-directive></div>
+        <br/>
+
+        <div class="my-directive"></div>
+
+        <hr>
+
+        <h3>Using TemplateUrl</h3>
+        <div my-template-directive></div>
+
+        <hr>
+
+        <h3>Using Dynamic templateUrls</h3>
+        <div my-dynamic-template-directive template-url="partials/one.html"></div>
+        <hr>
+        <div my-dynamic-template-directive template-url="partials/two.html"></div>
+        <hr>
+        <div my-dynamic-template-directive template-url="partials/three.html"></div>
+        <hr>
+
+        <hr>
+
+        <h3>Communicate between controllers and directive</h3>
+        
+        <ul class="list-group">
+            <li class="list-group-item">Shared Scope</li>
+            <li class="list-group-item">Isolated Scope</li>
+        </ul>
+        
+        <hr>
+        <h3>Shared Scope</h3>
+        
+        <div places-directive></div>
+        
+        <hr>
+        <h3>Isolated Scope</h3>
+        <div places-dynamic-directive get-places="places"></div>
+        
+        
+        <hr>
+        <br/>
+    </div>
+    
+    
+    <div class="container"  ng-controller="testController">
+        <h2>Test Controlller</h2>
+        <div places-dynamic-directive get-places="newPlaces" get-greet="Hello,"></div>
+        
+    </div>
+    
+
+</body>
+
+</html>

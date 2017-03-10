@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+
+    <div class="forms container" ng-controller="formsController">
+        
+        <h2>Using Forms</h2>
+        
+        <div class="content">
+            
+            <form name="myForm" class="form-group" novalidate>
+                <div>Username:</div>
+                <input type="text" ng-model="userName" name="userName" ng-minlength="5" ng-maxlength="15" class="form-control" required/>
+                <div class="error" ng-show="myForm.userName.$error.required">Username is requried</div>
+                <div class="error" ng-show="myForm.userName.$error.minlength">Min 5 characters</div>
+                <div class="error" ng-show="myForm.userName.$error.maxlength">Min 5 characters</div>
+                <br/>
+                
+                <div>Email:</div>
+                <input type="email" ng-model="email" name="email" class="form-control" required/>
+                <div class="error" ng-show="myForm.email.$error.required">Email is requried</div>
+                <div class="error" ng-show="myForm.email.$error.email">Email is Invalid</div><br/>
+                
+                <button class="btn btn-warning" ng-disabled="myForm.userName.$error.required || myForm.email.$error.required || myForm.email.$error.email" ng-click="submitForm()">Submit</button>
+                
+                <h3 ng-show="!isFormNotSubmitted">Form submitted successfully</h3>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

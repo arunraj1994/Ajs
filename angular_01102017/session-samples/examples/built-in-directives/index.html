@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="../../components/js/jquery-2.0.3.js"></script>
+    <script src="app.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div ng-controller="builtController">
+            <form class="form-group">
+
+                <h2>Bulit-in-directives</h2>
+
+                <h3>Using ng-show</h3>
+
+                <div class="box" ng-show="isShown">This is a new content</div>
+                <br/>
+                <button class="btn btn-primary" ng-click="showDiv()">Show</button>
+
+                <hr>
+
+                <h3>Using ng-if</h3>
+                <div class="box" ng-if="isDivShown">This is a new content</div>
+                <br/>
+
+                <hr>
+
+                <h3>Using ng-repeat</h3>
+
+                <ul class="list-group">
+                    <li ng-repeat="i in places" class="list-group-item">{{i}}</li>
+                </ul>
+
+                <br/>
+
+                <h3>Using ng-model</h3>
+                <div>Its used for form Elements like input, button, textarea etc</div>
+
+
+                <input class="form-control" type="text" ng-model="getData" />
+                <div>The Input Field value is : {{getData}}</div>
+                <input type="checkbox" ng-model="isChecked" />
+                <span>The Checkbox value is : {{isChecked}}</span>
+                <button class="btn btn-primary" ng-click="update()">Check</button>
+
+
+
+
+                <h3>In case of Array of objects</h3>
+
+                <select class="form-control">
+                    <option ng-repeat="i in userDetails" value="{{i.id}}">{{i.name}}</option>
+                </select>
+
+                <br/>
+                <hr>
+
+                <h3>using ng-options</h3>
+                <select class="form-control" ng-model="selectedData" ng-options="i as i.name for i in userDetails track by i.id"></select>
+
+
+                <br/>
+                <hr>
+
+                <h3>Using ng-class</h3>
+                <div class="box">Color the box</div>
+                <br/>
+
+                <div class="box" ng-class="i.type" ng-repeat="i in status">{{i.message}}</div>
+
+
+                <h3>More ng-class and ng-repeat</h3>
+
+                <ul class="list-group">
+                    <li class="list-group-item">$index</li>
+                    <li class="list-group-item">$first</li>
+                    <li class="list-group-item">$last</li>
+                    <li class="list-group-item">$odd</li>
+                    <li class="list-group-item">$even</li>
+                </ul>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <th>S.No</th>
+                        <th>name</th>
+                        <th>gender</th>
+                        <th>company</th>
+                        <th>email</th>
+                        <th>phone</th>
+                        <th>address</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="a in customerDetails" ng-class="isRowOdd($odd)">
+                            <td>{{$index+1}}</td>
+                            <td>{{a.name}}</td>
+                            <td>{{a.gender}}</td>
+                            <td>{{a.company}}</td>
+                            <td>{{a.email}}</td>
+                            <td>{{a.phone}}</td>
+                            <td>{{a.address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <h2>Using angular copy, extend and merge </h2>
+                <h3>Angular Copy</h3>
+                <button class="btn btn-primary" ng-click="doCopy()">Copy</button>
+                <br/>
+                <h3>Angular Extend</h3>
+                <button class="btn btn-primary" ng-click="doExtend()">Extend</button>
+                <br/>
+                <h3>Angular Merge</h3>
+                <button class="btn btn-primary" ng-click="doMerge()">Merge</button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <hr>
+
+                <h2>Using ng-disabled and ng-change</h2>
+                
+                <textarea class="form-control" ng-model="textAreaData" ng-change="getValue(textAreaData)">
+                    
+                </textarea><br/>
+                <button ng-click="submitForm()" ng-disabled="isDisabled" class="btn btn-success">Submit</button>
+                
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+                <hr>
+                <h2>Using ng-include</h2>
+                
+                <div ng-include src="'partials/sample.html'"></div>
+           
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+                <hr>
+                
+                <h2>Using $watch</h2>
+                <input type="checkbox" ng-model="isChecked" />
+                
+        
+                
+                <hr>
+                <br/>
+                <h2>Using $digest</h2>
+                <h3>{{count}}</h3>
+                <button ng-click="UpdateCount()" class="btn btn-success">Update</button>
+                <br/>
+                
+                <h3>{{anotherCount}}</h3>
+                <button ng-click="UpdateAnotherCount()" class="btn btn-success">Update</button> 
+                
+                <hr>
+                
+              
+                
+
+            </form>
+        </div>
+        
+        <div ng-controller="testController">
+            <h2>Using $apply</h2>
+            <h3>{{testCount}}</h3>
+            <button ng-click="UpdatetestCount()" class="btn btn-success">Update</button>
+            <br/><br/>
+              <ul class="list-group">
+                    <li class="list-group-item">$watch - Looks for a change in scope or service variables/method. 
+                        <br/>
+                        The change happens in variable level. <br/>
+                  </li>
+                    <li class="list-group-item">$digest - Update the change of a scope variable when the variable is  updated throught plain javascript/third party code ( non-angular code). <br/>
+                        The change happens in controller level. <br/>
+                        The $digest will invoke $watch for all the variables invoked to the same
+                    </li>
+                    <li class="list-group-item">$apply - Update the change of a scope variable when the variable is  updated throught plain javascript/third party code ( non-angular code). <br/>
+                        The change happens in module level. <br/>
+                        The $apply will invoke $digest and that will invoke $watch for all the variables invoked to the same
+                    </li>
+                </ul>
+            
+        </div>
+        <br/><br/><br/><br/>
+    </div>
+
+</body>
+
+</html>

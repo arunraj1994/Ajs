@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="../../components/js/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/productsController.js"></script>
+    <script src="controllers/contactsController.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <h2>Angular Routing</h2>
+        <h3>Two Types of Routing</h3>
+
+        <ul class="list-group">
+            <li class="list-group-item">Angular Routing - Its developed by Angular</li>
+            <li class="list-group-item">UI Routing - Its a third party plugin and used for nested templates</li>
+        </ul>
+        
+        
+        <div class="route-container" ng-controller="routeController">
+            
+            <div class="menus">
+                <ul>
+                    <li><a href="#/home" ng-class="getPage('/home')">Home</a></li>
+                    <!-- <li><a href="#/products">Products</a></li> -->
+                    <li><a href="#/contact" ng-class="getPage('/contact')">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="content" ng-view>
+                
+            </div>
+            
+        </div>
+        
+        <br/><br/><br/><br/>
+
+    </div>
+
+
+</body>
+
+</html>

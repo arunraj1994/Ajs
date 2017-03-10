@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link rel="stylesheet" href="../../components/css/bootstrap.css" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="../../components/js/jquery-2.0.3.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div ng-controller="serviceController">
+
+            <h2>Services in Angular</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Its serves data</li>
+                <li class="list-group-item">All services in angular are singleton. so it is intiated only one</li>
+                <li class="list-group-item">Use services to communicate/share data between the seperate/parallel contolers</li>
+            </ul>
+
+            <hr>
+
+            <h3>Types of services in angularjs</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Service Service</li>
+                <li class="list-group-item">Factory Service</li>
+                <li class="list-group-item">Provider Service</li>
+                <li class="list-group-item">Constants</li>
+                <li class="list-group-item">Value</li>
+            </ul>
+
+
+            <hr>
+
+            <h3>Using Service Service</h3>
+            <h3>{{greetMessage1}}</h3>
+
+            <hr>
+
+            <h3>Using Factory Service</h3>
+            <h3>{{greetMessage2}}</h3>
+            
+            
+
+            <hr>
+            <h3>Using Provider Service</h3>
+            <h3>{{greetMessage3}}</h3>
+
+            <hr>
+            <h3>Using Value Service</h3>
+            <h3>{{newValue}}</h3>
+
+            <hr>
+            <h3>Differences between Services, Factory and Providers</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Services and Factory are almost the same. Both can be injected inside the controller/services to share data</li>
+                <li class="list-group-item">While injecting service, we are creating a new instance of the service</li>
+                <li class="list-group-item">While injecting factory, we are returning the object already created</li>
+                <li class="list-group-item">There is no stuff that service can do but factory can't and also factory can do but service can't</li>
+                <li class="list-group-item">Providers can be injected in controllers, services and config whereas services and factory can't be injected in config</li>
+            </ul>
+
+            <hr>
+          
+            <h2 class="green-text">Tabular Data fetched from json file using service in serviceController</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr ng-repeat="i in customerDetail">
+                        <td>{{i.name}}</td>
+                        <td>{{i.company}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.address}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+
+
+        </div>
+        
+         <hr>
+       
+        <div ng-controller="serviceAgainController">
+            
+            <h2 class="green-text">Tabular Data fetched from json file using service in serviceAgainController</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in anotherCustomerDetail">
+                        <td>{{i.name}}</td>
+                        <td>{{i.company}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+         <!-- 
+        <hr>
+        
+        <div ng-controller="btnController">
+            
+            <form class="form-group">
+                <label>The check:</label>
+                <input type="checkbox" ng-model="isChecked" ng-change="getStatus(isChecked)" />
+            </form>
+            
+        </div>
+        
+        <hr>
+        
+        <div ng-controller="statusController">
+            
+           <h3>The status of the checkbox is {{getCheckBoxStatus()}}</h3>
+            -->
+        </div>
+
+    </div>
+
+</body>
+
+</html>

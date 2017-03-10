@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container" ng-controller="filterController">
+
+        <h2>Using Filters</h2>
+        <h3>Types of filters</h3>
+
+        <ul class="list-group">
+            <li class="list-group-item">Built-in Filters</li>
+            <li class="list-group-item">Custom Filters</li>
+        </ul>
+
+        <hr>
+
+        <h3>Built-in Filters</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Currency</li>
+            <li class="list-group-item">Number</li>
+            <li class="list-group-item">Uppercase</li>
+            <li class="list-group-item">Lowercase</li>
+            <li class="list-group-item">Date</li>
+            <li class="list-group-item">Json</li>
+            <li class="list-group-item">Filter</li>
+            <li class="list-group-item">OrderBy</li>
+            <li class="list-group-item">LimitTo</li>
+        </ul>
+
+        <hr>
+
+        <h2>Using Currency</h2>
+        <h3>{{cost | currency:'&#x80;'}}</h3>
+
+        <hr>
+
+        <h2>Using Number</h2>
+        <h3>{{count | number:2 }}</h3>
+
+        <hr>
+
+        <h2>Using Date</h2>
+        <h3>{{today | date: 'fullDate'}}</h3>
+        
+        <hr>
+        
+        <h2>Using Filter</h2><br/>
+        <h3>Search</h3>
+        <input class="form-control" type="text" ng-model="getData" /><br/>
+        <table class="table table-bordered">
+            <thead>
+                <th>name</th>
+                <th>gender</th>
+                <th>company</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>address</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="a in customerDetails | orderBy:'name' | startFrom:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage | filter:getData ">
+                    <td><a href="#/products/{{a}}">{{a.name}}</a></td>
+                    <td>{{a.gender}}</td>
+                    <td>{{a.company}}</td>
+                    <td>{{a.email}}</td>
+                    <td>{{a.phone}}</td>
+                    <td>{{a.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div>
+            <button class="btn btn-success" ng-click="prev()" ng-disabled="currentPage==1">Prev</button>
+            <button class="btn btn-success" ng-click="next()" ng-disabled="currentPage==numPages">Next</button>
+        </div>
+        
+   <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+
+
+</body>
+
+</html>

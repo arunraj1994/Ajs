@@ -1,0 +1,24 @@
+<h3>This is a home page</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <th>S.No</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>company</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>address</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="a in customerDetails">
+            <td>{{$index+1}}</td>
+            <td><a href="#/products/{{a}}">{{a.name}}</a></td>
+            <td>{{a.gender}}</td>
+            <td>{{a.company}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.phone}}</td>
+            <td>{{a.address}}</td>
+        </tr>
+    </tbody>
+</table>

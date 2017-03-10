@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="sample">
+<head>
+<title>Angular - Basic Directives</title>
+<script src="../angular.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" href="../style.css"></link>
+</head>
+<body>
+<div ng-controller = "myctrl" class="">
+
+<table class="employee">
+<thead>
+<tr>
+<th>Name</th>
+<th>Gender</th>
+<th>Company</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody ng-repeat="employee in employees">
+<tr>
+<td>{{employee.name}}</td>
+<td>{{employee.gender}}</td>
+<td>{{employee.company}}</td>
+<td>{{employee.email}}</td>
+<td>{{employee.phone}}</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="">
+<head>
+<title>Angular - Directives</title>
+<script src="../angular.js"></script>
+<link rel="stylesheet" href="../style.css"></link>
+</head>
+<body>
+<div class="wrapper">
+<h1>Examples of angular directives</h1>
+<h2>Using ng-bind directive</h2>
+<p>HAPPY NEW YEAR <input type="text" ng-model="name"></p>
+<p ng-bind="name"></p>
+<hr/>
+
+<h2>Using Expression</h2>
+<p>HAPPY NEW YEAR <input type="text" ng-model="name"></p>
+<p>{{name}}</p>
+
+<div  ng-init="names=['Jani','Hege','Kai']">
+  <ul> Names:
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+ <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
+  <li ng-repeat="name in names">
+   <span ng-class-odd="'odd'" ng-class-even="'even'">
+     {{name}}
+   </span>
+  </li>
+</ol>
+</div>
+</div>
+</body>
+</html>

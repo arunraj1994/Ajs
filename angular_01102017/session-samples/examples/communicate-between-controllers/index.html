@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../components/css/styles.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="../../components/js/jquery-2.0.3.js"></script>
+    <script src="app.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="content-box" ng-controller="CommunicateController">
+
+            <h2>Communicate between controllers - Scenerio</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Nested Controllers</li>
+                <li class="list-group-item">Parallel Controllers</li>
+            </ul>
+
+            <hr>
+
+
+
+            <div ng-controller="parentController">
+
+                <h2>Communicate between Nested controllers</h2>
+
+                <h3>$Broadcast and $Emit</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>$broadcast</strong> - Its dispatches event from parent to child. use $broadcast in parent to pass the data and $on in child to retrieve the data</li>
+                    <li class="list-group-item"><strong>$emit</strong> - Its dispatches event from child to parent. use $emit in child to pass the data and $on in parent to retrieve the data</li>
+                </ul>
+                <br/>
+
+
+                <h3>Parent Controller</h3>
+                <input type="number" class="form-control" type="text" ng-model="parentExpenses" />
+                <br/>
+                <button class="btn btn-success" ng-click="AddParentExpenses()">Add Parent Expenses</button>
+                <h3>The Family Expenses: {{familyExpenses}}</h3>
+
+                <hr>
+
+                <div ng-controller="childController">
+                    <h3>Child Controller</h3>
+                    <input type="number" class="form-control" type="text" ng-model="childExpenses" />
+                    <br/>
+                    <button class="btn btn-success" ng-click="AddChildExpenses()">Add Child Expenses</button>
+                    <h3>The Family Expenses: {{familyExpenses}}</h3>
+                </div>
+
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="simpleApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myApp</title>
+    <link href="../../components/css/bootstrap.css" rel="stylesheet" />
+    <script src="../../components/js/angular.js"></script>
+    <script src="../../components/js/underscore.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/thirdControllerFile.js"></script>
+    
+    
+</head>
+
+<body>
+
+    
+    <div class="container">        
+        
+        <div ng-controller="third">{{greet}}</div>
+        
+        <div ng-controller="simpleController">
+            
+            <h2>Using Expressions</h2>
+            <h3>{{greet}}</h3>
+            
+            <hr>
+            
+            <h2>Using ng-bind</h2>
+            <h3 ng-bind="greet"></h3>
+            
+            <hr>
+            
+        </div>
+        
+        <br/>
+        <br/>
+                
+        <div ng-controller="secondController">
+        
+            <h2>From Second Controller</h2>
+            <h3>{{greet}}</h3>
+            
+            
+        </div>
+        
+    </div>
+  
+    
+</body>
+
+</html>

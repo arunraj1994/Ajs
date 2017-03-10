@@ -1,0 +1,100 @@
+.box {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+.green {
+    background: #3c763d;
+    color: #fff;
+}
+
+.invalid {
+    background: #960000;
+    color: #fff;
+}
+
+.warning {
+    background: #ff9900;
+    color: #fff;
+}
+
+.success {
+    background: #3c763d;
+    color: #fff;
+}
+
+.odd {
+    background: #d9edf7;
+}
+
+.even {
+    background: #fbfbfb;
+}
+
+.content-box {
+    width: 600px;
+}
+
+
+.menus {
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    overflow: auto;
+}
+
+.menus ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menus ul li {
+    float: left;
+    line-height: 40px;
+    border-right: 1px solid #ccc;
+}
+
+.menus ul li a {
+    padding: 0 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.menus ul li a:hover {
+    text-decoration: none;
+    background: #d9edf7;
+}
+
+.menus ul li a.active {
+    text-decoration: none;
+    background: #d9edf7;
+}
+
+.route-container .content, .forms .content {
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    overflow: auto;
+    min-height: 100px;
+    padding: 20px;
+}
+
+.error {
+    color: #960000;
+}
+
+h2 {
+    color: #8a6d3b;
+}
+
+
+
+
+
+
+
+
